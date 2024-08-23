@@ -32,5 +32,5 @@ export function calc(): i64 {
   let trees_climbed = load_trees_climbed_per_day();
   let villans_killed = load_villans_killed();
 
-  return (score) * ((villas_killed + trees_climbed) / duration);
+  return (score) * ((villans_killed + trees_climbed) / duration);
 }

@@ -11,7 +11,7 @@
   "author": "Tushar Ojha",
   "license": "ISC",
   "dependencies": {
-    "@truenetworkio/sdk": "^0.0.6",
+    "@truenetworkio/sdk": "0.0.9",
     "asc": "^2.0.3",
     "dotenv": "^16.4.5"
   },

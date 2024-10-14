@@ -1,3 +1,5 @@
 .env
+.yalc
 build
 node_modules
+.env

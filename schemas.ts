@@ -1,15 +1,13 @@
-import { Schema, U32, U64 } from "@truenetworkio/sdk"
+import { Hash, Schema, U32, U64 } from "@truenetworkio/sdk"
 
-type DayScore = {
+export const dayScoreSchema = Schema.create({
   score: U32,
   durationSpent: U64,
   treesClimbedPerDay: U64,
   villansKilled: U32
-}
+})
 
-export const dayScoreSchema = new Schema<DayScore>({
-  score: new U32(0),
-  durationSpent: new U64(0),
-  treesClimbedPerDay: new U64(0),
-  villansKilled: new U32(0)
+export const dailyProgress = Schema.create({
+  miles: U64,
+  radioScore: U32
 })

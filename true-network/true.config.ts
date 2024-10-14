@@ -1,15 +1,16 @@
 
-import { TrueApi, testnet } from '@truenetworkio/sdk'
+import { TrueApi, localnet, testnet } from '@truenetworkio/sdk'
 import { TrueConfig } from '@truenetworkio/sdk/dist/utils/cli-config'
 
-// If you are using a NodeJS environment, please uncomment the below code
-// and install the dotenv dependency, using yarn add dotenv.
+// If you are not in a NodeJS environment, please comment the code following code:
 import dotenv from 'dotenv'
+import { dailyProgress, dayScoreSchema } from '../schemas'
 dotenv.config()
 
 export const getTrueNetworkInstance = async (): Promise<TrueApi> => {
-  const trueApi = await TrueApi.create(config.account.secret)
+  const trueApi = await TrueApi.create(config.account.secret, config.network)
 
+  console.log(trueApi.account.address)
   await trueApi.setIssuer(config.issuer.hash)
 
   return trueApi;
@@ -18,17 +19,17 @@ export const getTrueNetworkInstance = async (): Promise<TrueApi> => {
 export const config: TrueConfig = {
   network: testnet,
   account: {
-    address: 'jgZK4XYppqabyHNyj3ja7d1jELXHMD4wSHWMPiHHnL5xrJj',
+    address: 'jUT259GoV7z2GUrFH3UeFVRk5qSTwjzrjeqyUatKz4FAGBq',
     secret: process.env.TRUE_NETWORK_SECRET_KEY ?? ''
   },
   issuer: {
-    name: 'TrueExampleTest',
-    hash: '0xad24c1047230cee84b34ea30bb824fa13b2aeba63900aecbb7581a68e82e8e56'
+    name: 'TestApp',
+    hash: '0xd8cd9fc822c6a80acefd2f66fa9fa88ac52f01690f6cfb448e10597406df3f78'
   },
   algorithm: {
-    id: undefined,
-    path: undefined,
-    schemas: []
+    id: 106,
+    path: 'acm',
+    schemas: [dayScoreSchema, dailyProgress]
   },
 }
   

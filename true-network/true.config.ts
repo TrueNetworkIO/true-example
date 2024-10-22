@@ -1,5 +1,5 @@
 
-import { TrueApi, localnet, testnet } from '@truenetworkio/sdk'
+import { TrueApi, testnet } from '@truenetworkio/sdk'
 import { TrueConfig } from '@truenetworkio/sdk/dist/utils/cli-config'
 
 // If you are not in a NodeJS environment, please comment the code following code:
@@ -27,7 +27,7 @@ export const config: TrueConfig = {
     hash: '0xd8cd9fc822c6a80acefd2f66fa9fa88ac52f01690f6cfb448e10597406df3f78'
   },
   algorithm: {
-    id: 106,
+    id: 100,
     path: 'acm',
     schemas: [dayScoreSchema, dailyProgress]
   },
